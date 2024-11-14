@@ -31,6 +31,8 @@ df_ordenado = df['NM_MUNIC'].value_counts().head(10).sort_values(ascending=True)
 st.write(df_ordenado)
 st.bar_chart(df_ordenado)
 
+st.bar_chart(df['NM_MUNIC'].value_counts().sort_values(ascending=False)[:10])
+
 
 
 

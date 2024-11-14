@@ -7,4 +7,5 @@ st.text(f'Seu número é {numero}')
 
 
 
-st.color_picker('Escolha sua cor favorita')
+color = st.color_picker('Escolha sua cor favorita', '#000000') #cor inicial preta
+st.write('A cor escolhida é:', color)

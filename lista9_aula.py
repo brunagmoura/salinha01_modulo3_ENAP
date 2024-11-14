@@ -13,5 +13,3 @@ opcao = st.selectbox(
     'Qual servidor você gostaria de selecionar?',
     options=["Selecione..."] + df['nomeServidor'].tolist()
 )
-
-st.selectbox('Qual servidor você gostaria de selecionar?', df['nomeServidor'])

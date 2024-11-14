@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 
+#Questão 1
+st.title("Questão 1")
+
 df = pd.DataFrame({
     'nomeServidor': ['Adriana', 'Monica', 'Samara'],
     'salario': [1200,300,5000]
@@ -16,3 +19,38 @@ st.write('Você selecionou: ', opcao)
 
 dadosFiltrados = df[df['nomeServidor'] == opcao]
 dadosFiltrados
+
+#Questão 2
+
+st.title("Questão 2")
+
+df = pd.read_csv('https://raw.githubusercontent.com/adrianalite/datasets/main/BR_LQs_CD2022.csv')
+
+#Lista de estados
+estados = df['NM_UF'].unique()
+
+estadoFiltro = st.selectbox(
+    'Qual estado eu quero?',
+    estados
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

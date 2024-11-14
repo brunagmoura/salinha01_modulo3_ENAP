@@ -26,13 +26,9 @@ st.title("Questão 2")
 
 df = pd.read_csv('https://raw.githubusercontent.com/adrianalite/datasets/main/BR_LQs_CD2022.csv')
 
-#Lista de estados
-estados = df['NM_UF'].unique()
+st.header('Os dez municípios com mais comunidades quilombolas')
+st.bar_chart(df['NM_MUNIC'].value_counts().sort_values(ascending=False).head(10))
 
-estadoFiltro = st.selectbox(
-    'Qual estado eu quero?',
-    estados
-)
 
 
 

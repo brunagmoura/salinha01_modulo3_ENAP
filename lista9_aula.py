@@ -13,3 +13,5 @@ opcao = st.selectbox(
     'Qual servidor você gostaria de selecionar?',
     options=["Selecione..."] + df['nomeServidor'].tolist()
 )
+
+st.write(opcao)

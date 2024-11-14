@@ -27,8 +27,9 @@ st.title("Questão 2")
 df = pd.read_csv('https://raw.githubusercontent.com/adrianalite/datasets/main/BR_LQs_CD2022.csv')
 
 st.header('Os dez municípios com mais comunidades quilombolas')
-df = df.sort_values(by='NM_MUNIC', ascending=True)
-st.bar_chart(df)
+df_ordenado = df['NM_MUNIC'].value_counts().head(10).sort_values(ascending=True)
+st.write(df_ordenado)
+st.bar_chart(df_ordenado)
 
 
 

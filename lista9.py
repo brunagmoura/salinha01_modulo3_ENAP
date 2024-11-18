@@ -64,7 +64,7 @@ fig_municipios = px.bar(
 )
 st.plotly_chart(fig_municipios)
 
+st.header('Selecionar quantidade de linhas a serem exibidas')
 
-
-numero = st.slider('Selecione um número de linhas a serem exibidas', min_value = 0, max_value = 100)
-st.write(df.head(numero))
+numero_de_linhas = st.slider('Quantas linhas você deseja exibir?', min_value = 0, max_value = 100)
+st.write(df.head(numero_de_linhas))

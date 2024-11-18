@@ -212,17 +212,16 @@ st.subheader("Usando a biblioteca plotly")
 
 #Ficaria assim:
 
-df_contagem = df['NM_UF'].value_counts().reset_index()
-df_contagem.columns = ['UF', 'Quantidade'] #Alterar o nome das colunas
+df_contagem = df['NM_UF'].value_counts()
 
 #ATENÇÃO: Não podemos esquecer de importar o plotly
 
 import plotly.express as px
 fig = px.bar(
     df_contagem,
-    x='UF',
-    y='Quantidade',
-    labels={'UF': 'Unidade Federativa', 'Quantidade': 'Número de Registros'},
+    x='NM_UF',
+    y='count',
+    labels={'NM_UF': 'Unidade Federativa', 'count': 'Número de Registros'},
     title='Distribuição por Unidade Federativa'
 ) #Criar o gráfico com o plotly
 

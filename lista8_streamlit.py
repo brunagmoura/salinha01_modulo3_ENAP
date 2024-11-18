@@ -212,7 +212,10 @@ st.subheader("Usando a biblioteca plotly")
 
 #Ficaria assim:
 
-df_contagem = df['NM_UF'].value_counts()
+df_contagem = df['NM_UF'].value_counts().reset_index()
+#Porque usar o reset_index? Usamos o reset_index porque quando montamos a base de dados com o value_counts, o Python considera
+#Que a NM_UF não é uma simples coluna, mas sim o "index" do DataFrame
+#Quando usamos o reset_index(), nós fazemos com que NM_UF vire uma coluna como outra qualquer!
 
 #ATENÇÃO: Não podemos esquecer de importar o plotly
 

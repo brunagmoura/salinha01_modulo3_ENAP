@@ -47,3 +47,77 @@ st.text("Seu número é " + str(numero))
 #st.text(f'Seu número é {numero}')
 
 #Questão 4:
+st.title("Questão 4")
+
+st.header("Interagir com a aplicação")
+
+st.subheader("Caixa de seleção")
+x = st.checkbox('Sim')
+st.write(x)
+
+st.subheader("Botão")
+if st.button('Clique'):
+    st.write('Botão clicado!')
+
+st.subheader("Seleção em uma lista")
+genero = st.radio('Selecione seu gênero', ['Masculino', 'Feminino'])
+st.write(f'Você escolheu: {genero}')
+
+st.subheader("Seleção única em uma lista suspensa")
+genero = st.selectbox('Selecione seu gênero', ['Masculino', 'Feminino'])
+st.write(f'Você escolheu: {genero}')
+
+st.subheader("Seleção múltipla em uma lista")
+deptos = st.multiselect('Escolha um departamento', ['DCS', 'DE', 'DIR'])
+st.write('Você escolheu:', deptos)
+
+st.subheader("Seleção de uma lista, mas usando o slider como seletor")
+resposta = st.select_slider('Selecione uma resposta', ['Ruim', 'Bom', 'Excelente'])
+st.write(f'Você selecionou: {resposta}')
+
+st.subheader("Seleção usando o slider, mas em um intervalo numérico")
+numero = st.slider('Selecione um número', 0, 50)
+st.write(f'Você selecionou: {numero}')
+
+st.subheader("Entrada numérica com botões para aumentar ou diminuir um valor")
+num = st.number_input('Selecione um número', 0, 10)
+st.write(f'Número escolhido: {num}')
+
+st.subheader("Entrada textual")
+email = st.text_input('Endereço de e-mail')
+st.write(f'E-mail inserido: {email}')
+
+st.subheader("Selecionar uma data")
+data = st.date_input('Data de viagem')
+st.write(f'Data escolhida: {data}')
+
+st.subheader("Selecionar um horário")
+tempo = st.time_input('Tempo de escola')
+st.write(f'Tempo selecionado: {tempo}')
+
+st.subheader("Inserir várias linhas")
+descricao = st.text_area('Descrição')
+st.write(f'Descrição fornecida: {descricao}')
+
+st.subheader("Fazer upload de uma foto")
+foto = st.file_uploader('Atualize uma foto')
+if foto:
+    st.image(foto)
+
+st.subheader("Selecionar uma cor")
+cor = st.color_picker('Escolha sua cor favorita')
+st.write(f'A cor escolhida foi: {cor}')
+
+st.header("Mensagens de status")
+
+st.subheader("Mensagem de sucesso")
+st.success("Você conseguiu!")
+
+st.subheader("Mensagem de erro")
+st.error("Erro!")
+
+st.subheader("Mensagem de aviso")
+st.warning("Advertência")
+
+st.subheader("Mensagem informativa")
+st.info("Esta é uma informação")

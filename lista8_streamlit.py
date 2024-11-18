@@ -142,7 +142,7 @@ st.header("Caixa de seleção")
 #    'Qual servidor você gostaria de selecionar?',
 #     df['nomeServidor'])
 
-Mas podemos melhorá-lo, incluindo o comando "Selecione um servidor"
+#Mas podemos melhorá-lo, incluindo o comando "Selecione um servidor"
 
 #Para isso, vamos criar uma lista de opções possíveis. Essas opções serão o comando "Selecione um servidor" ou 
 #O nome dos servidores da coluna "nomeServidor" do nosso DataFrame

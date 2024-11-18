@@ -17,13 +17,15 @@ df_homens = pd.DataFrame(data_homens['dados'])
 
 df = pd.concat([df_mulheres, df_homens])
 
-fig = px.bar(
-    df,
-    x='UF',
-    y='Quantidade',
-    color='Sexo',
-    labels={'Quantidade': 'Quantidade', 'UF': 'Unidade Federativa'},
-    barmode='stack'  # Define o gráfico como empilhado
-)
+st.write(df)
 
-st.plotly_chart(fig)
+#fig = px.bar(
+#    df,
+#    x='UF',
+#    y='Quantidade',
+#    color='Sexo',
+#    labels={'Quantidade': 'Quantidade', 'UF': 'Unidade Federativa'},
+#    barmode='stack'  # Define o gráfico como empilhado
+#)
+
+#st.plotly_chart(fig)

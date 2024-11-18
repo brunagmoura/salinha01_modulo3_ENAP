@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+st.info("Para visualizar o código com comentários, acesse o caderno 'Salinha_ProfaBruna_14_11_2024' ")
+
 #Questão 1
 st.title("Questão 1")
 st.warning("A resolução desta questão está na lista 8: https://github.com/brunagmoura/salinha01_modulo3_ENAP/blob/main/lista8_streamlit.py")

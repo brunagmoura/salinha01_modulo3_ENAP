@@ -47,6 +47,7 @@ st.text("Seu número é " + str(numero))
 #Outra opção:
 #st.text(f'Seu número é {numero}')
 
+st.divider()
 #Questão 4:
 st.title("Questão 4")
 

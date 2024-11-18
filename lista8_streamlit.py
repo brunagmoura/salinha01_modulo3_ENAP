@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 #Questão 1:
 st.title("Questão 1")
@@ -6,7 +7,7 @@ st.write("Sou servidor público")
 
 st.divider()
 #Questão 2:
-st.title("Questão 1")
+st.title("Questão 2")
 
 #Aqui vamos usar as formatações de texto padrões do streamlit
 #Eu amo a documentação da página oficial do streamlit, eles trazem vários exemplos e aplicações com imagens:
@@ -121,3 +122,47 @@ st.warning("Advertência")
 
 st.subheader("Mensagem informativa")
 st.info("Esta é uma informação")
+
+#Questão 5:
+st.title("Questão 5")
+
+#Primeiro passo: criar o DataFrame com as servidoras e os salários
+df = pd.DataFrame({
+    'nomeServidor': ['Adriana', 'Monica', 'Samara'],
+    'salario': [1200,300,5000]
+})
+
+#Segundo passo: exibir a tabela com a base de dados
+st.header("Base de dados que criamos")
+st.write(df)
+
+st.header("Caixa de seleção")
+#Esse é o código padrão:
+#opcao = st.selectbox(
+#    'Qual servidor você gostaria de selecionar?',
+#     df['nomeServidor'])
+
+Mas podemos melhorá-lo, incluindo o comando "Selecione um servidor"
+
+#Para isso, vamos criar uma lista de opções possíveis. Essas opções serão o comando "Selecione um servidor" ou 
+#O nome dos servidores da coluna "nomeServidor" do nosso DataFrame
+
+lista_de_opcoes = ['Selecione um servidor'] + df['nomeServidor'].tolist()
+opcao = st.selectbox(
+    'Qual servidor você gostaria de selecionar?',
+    lista_de_opcoes
+)
+
+st.write('Você selecionou: ', opcao)
+
+#Terceiro passo: filtrar apenas o servidor escolhido
+#Qual a base de dados que queremos filtrar? df! E vamos filtrar a partir de qual coluna? nomeServidor
+#Por isso vamos começar com df['nomeServidor']
+#O que queremos filtrar? a opcao escolhida, que está armazenada como "opcao"
+#Por isso vamos usar: df['nomeServidor'] == opcao
+#Finalmente, queremos aplicar este filtro na base de dados df
+#Por isso: df[df['nomeServidor'] == opcao]
+
+st.header("Exibir apenas o servidor selecionado")
+dfFiltrado = df[df['nomeServidor'] == opcao]
+st.write(dfFiltrado)

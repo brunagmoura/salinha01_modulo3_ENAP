@@ -123,6 +123,7 @@ st.warning("Advertência")
 st.subheader("Mensagem informativa")
 st.info("Esta é uma informação")
 
+st.divider()
 #Questão 5:
 st.title("Questão 5")
 
@@ -166,3 +167,52 @@ st.write('Você selecionou: ', opcao)
 st.header("Exibir apenas o servidor selecionado")
 dfFiltrado = df[df['nomeServidor'] == opcao]
 st.write(dfFiltrado)
+
+st.divider()
+#Questão 6
+
+st.title("Questão 6")
+
+st.header("Atividade 1")
+#Primeiro passo: importar a base de dados usando o pandas
+df = pd.read_csv('https://raw.githubusercontent.com/adrianalite/datasets/main/BR_LQs_CD2022.csv')
+
+#Segundo passo: implementar um slider para que o usuário escolha quantas linhas ele quer visualizar no DataFrame
+#Aprendemos que o comando df.head() pode receber como parâmetro a quantidade de linhas a serem exibidas
+#Por exemplo: df.head(5) exibe as 5 primeiras linhas do data frame
+#Podemos fazer com que esse 5 seja um número dinâmico, de modo que o próprio usuário deverá fazer essa escolha
+
+numero_de_linhas = st.slider('Quantas linhas você deseja exibir?', min_value = 0, max_value = 100) #Aqui colocamos 
+#Em min_value o valor mínimo que o usuário pode escolher e max_value o valor máximo que o usuário pode escolher
+#Finalmente, aplicamos no nosso df.head: df.head(numero_de_linhas).
+#Para exibir no streamlit não podemos esquecer de usar o st.write. Assim:
+
+st.write(df.head(numero_de_linhas))
+
+st.header("Atividade 2")
+#Para essa atividade vamos usar o comando value_counts, que exibe a qantidade de ocorrências de uma determinada informação
+#Qual informação/coluna desejamos calcular a quantidade de ocorrências? NM_UF!
+#Por isso, usamos df['NM_UF']
+#Ficará assim:
+
+qtde_comunidades_estado = df['NM_UF'].value_counts()
+st.write(qtde_comunidades_estado)
+
+#Para construir o gráfico, podemos usar a função nativa bar_chart
+st.bar_chart(df['NM_UF'].value_counts())
+
+#Infelizmente com o bar_chart não conseguimos personalizar os títulos dos eixos, mas podemos usar o plotly junto com o streamlit
+#Ficaria assim:
+
+df_contagem = df['NM_UF'].value_counts().reset_index()
+df_contagem.columns = ['UF', 'Quantidade'] #Alterar o nome das colunas
+
+fig = px.bar(
+    df_counts,
+    x='UF',
+    y='Quantidade',
+    labels={'UF': 'Unidade Federativa', 'Quantidade': 'Número de Registros'},
+    title='Distribuição por Unidade Federativa'
+) #Criar o gráfico com o plotly
+
+st.plotly_chart(fig) #Exibir o gráfico no streamlit

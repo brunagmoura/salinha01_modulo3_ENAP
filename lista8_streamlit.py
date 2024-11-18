@@ -209,7 +209,7 @@ df_contagem = df['NM_UF'].value_counts().reset_index()
 df_contagem.columns = ['UF', 'Quantidade'] #Alterar o nome das colunas
 
 fig = px.bar(
-    df_counts,
+    df_contagem,
     x='UF',
     y='Quantidade',
     labels={'UF': 'Unidade Federativa', 'Quantidade': 'Número de Registros'},

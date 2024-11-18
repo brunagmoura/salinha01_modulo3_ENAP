@@ -208,6 +208,9 @@ st.bar_chart(df['NM_UF'].value_counts())
 df_contagem = df['NM_UF'].value_counts().reset_index()
 df_contagem.columns = ['UF', 'Quantidade'] #Alterar o nome das colunas
 
+#Não podemos esquecer de importar o plotly
+
+import plotly.express as px
 fig = px.bar(
     df_contagem,
     x='UF',

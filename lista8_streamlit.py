@@ -191,6 +191,9 @@ numero_de_linhas = st.slider('Quantas linhas você deseja exibir?', min_value = 
 st.write(df.head(numero_de_linhas))
 
 st.header("Atividade 2")
+#Para construir o gráfico, podemos usar a função nativa bar_chart
+st.subheader("Usando a função nativa do streamlit bar_chart")
+
 #Para essa atividade vamos usar o comando value_counts, que exibe a qantidade de ocorrências de uma determinada informação
 #Qual informação/coluna desejamos calcular a quantidade de ocorrências? NM_UF!
 #Por isso, usamos df['NM_UF']
@@ -199,16 +202,20 @@ st.header("Atividade 2")
 qtde_comunidades_estado = df['NM_UF'].value_counts()
 st.write(qtde_comunidades_estado)
 
-#Para construir o gráfico, podemos usar a função nativa bar_chart
+#Agora plotamos com a função nativa "bar_chart"
 st.bar_chart(df['NM_UF'].value_counts())
 
+st.subheader("Usando a biblioteca plotly")
 #Infelizmente com o bar_chart não conseguimos personalizar os títulos dos eixos, mas podemos usar o plotly junto com o streamlit
+#Parece que a função nativa bar_chart também tem um problema coma  ordenação das informações. Usando o plotly também conseguimos atacar
+#Este problema
+
 #Ficaria assim:
 
 df_contagem = df['NM_UF'].value_counts().reset_index()
 df_contagem.columns = ['UF', 'Quantidade'] #Alterar o nome das colunas
 
-#Não podemos esquecer de importar o plotly
+#ATENÇÃO: Não podemos esquecer de importar o plotly
 
 import plotly.express as px
 fig = px.bar(

@@ -3,6 +3,7 @@
 import requests
 import pandas as pd
 import plotly.express as px
+import streamlit as st
 
 #Manipulação da base de dados
 st.warning("Para o código comentado, consulte o caderno "Salinha_ProfaBruna_18_11_2024")

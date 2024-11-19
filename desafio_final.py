@@ -73,8 +73,12 @@ estados_selecionados = st.multiselect(
     default=opcoes[:3]  #Define os 3 primeiros estados como padrão
 )
 
-#Depois filtramos os dados pelo estado selecionado
-df_filtrado = df_total_agregado[df_total_agregado['UF'] == estados_selecionados]
+#Depois filtramos os dados pelos estados selecionados
+#NOVIDADE: como estamos usando mais de um estado, não usamos o ==, mas a função .isin
+#O Estado da coluna "UF" isin (está na) lista de estados_selecionados?
+#Se sim, então ele é escolhido.
+
+df_filtrado = df_total_agregado[df_total_agregado['UF'].isin(estados_selecionados)]
 
 #Agora criamos o gráfico de barras empilhadas
 fig_barras_apos_selecao = px.bar(

@@ -6,7 +6,7 @@ import plotly.express as px
 import streamlit as st
 
 #Manipulação da base de dados
-st.warning("Para o código comentado, consulte o caderno "Salinha_ProfaBruna_18_11_2024")
+st.warning("Para o código comentado, consulte o caderno Salinha_ProfaBruna_18_11_2024")
 
 url_mulheres = 'https://dadosabertos.camara.leg.br/api/v2/deputados?siglaSexo=F&ordem=ASC&ordenarPor=nome'
 resposta_mulheres = requests.get(url_mulheres)

@@ -36,20 +36,20 @@ st.write(df_total_agregado)
 # Criando o gráfico de barras empilhadas
 fig_barras = px.bar(
     df_total_agregado,
-    x='siglaUf',
-    y='Quantidade',
+    x='UF',
+    y='Contagem',
     color='Sexo',
-    labels={'siglaUf': 'Unidade Federativa', 'Quantidade': 'Quantidade'},
+    labels={'UF': 'Unidade Federativa', 'Contagem': 'Quantidade'},
     barmode='group', #Gráfico de barras
     title='Quantidade de Deputados por UF e Sexo (barras)'
 )
 
 fig_barras_empilhadas = px.bar(
     df_total_agregado,
-    x='siglaUf',
-    y='Quantidade',
+    x='UF',
+    y='Contagem',
     color='Sexo',
-    labels={'siglaUf': 'Unidade Federativa', 'Quantidade': 'Quantidade'},
+    labels={'UF': 'Unidade Federativa', 'Contagem': 'Quantidade'},
     barmode='stack', #Gráfico de barras empilhadas
     title='Quantidade de Deputados por UF e Sexo (barras empilhadas)'
 )

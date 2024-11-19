@@ -67,14 +67,14 @@ st.title("Utilizando o select box para que o usuário possa escolher um determin
 
 opcoes = df_total_agregado['UF'].unique()
 
-estado_selecionado = st.selectbox(
-    "Selecione o estado que deseja visualizar:", #mensagem de texto
-    opcoes, #opções do selectbox
-    index=0  #define o primeiro estado como padrão
+estados_selecionados = st.multiselect(
+    "Selecione os estados que deseja visualizar:",  #Mensagem de texto
+    opcoes,  #Lista de opções com os estados únicos
+    default=opcoes[:3]  #Define os 3 primeiros estados como padrão
 )
 
 #Depois filtramos os dados pelo estado selecionado
-df_filtrado = df_total_agregado[df_total_agregado['UF'] == estado_selecionado]
+df_filtrado = df_total_agregado[df_total_agregado['UF'] == estados_selecionados]
 
 #Agora criamos o gráfico de barras empilhadas
 fig_barras_apos_selecao = px.bar(
@@ -84,7 +84,7 @@ fig_barras_apos_selecao = px.bar(
     color='Sexo',
     labels={'UF': 'Unidade Federativa', 'Contagem': 'Quantidade'},
     barmode='group', 
-    title=f'Quantidade de Deputados por Sexo no Estado {estado_selecionado}' #Aqui colocamos o estado_selecionado como um parâmetro, que é o definido na caixa de seleção
+    title=f'Quantidade de Deputados por Sexo nos Estados {estados_selecionados}' #Aqui colocamos o estado_selecionado como um parâmetro, que é o definido na caixa de seleção
 )
 
 st.plotly_chart(fig_barras_apos_selecao)

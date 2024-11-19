@@ -56,7 +56,7 @@ fig_barras_empilhadas = px.bar(
 
 # Exibindo o gráfico no Streamlit
 st.title("Exibições gráficas")
-st.header("Gráfico de barras)
+st.header("Gráfico de barras")
 st.plotly_chart(fig_barras)
 st.plotly_chart(fig_barras_empilhadas)
 

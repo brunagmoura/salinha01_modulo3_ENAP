@@ -35,7 +35,7 @@ st.write(df_total_agregado)
 
 # Criando o gráfico de barras empilhadas
 fig_barras = px.bar(
-    df_grouped,
+    df_total_agregado,
     x='siglaUf',
     y='Quantidade',
     color='Sexo',
@@ -45,7 +45,7 @@ fig_barras = px.bar(
 )
 
 fig_barras_empilhadas = px.bar(
-    df_grouped,
+    df_total_agregado,
     x='siglaUf',
     y='Quantidade',
     color='Sexo',
